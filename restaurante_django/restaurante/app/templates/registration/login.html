@@ -1,0 +1,34 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %} 
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'app/css/login.css' %}">
+
+    <div class="login-box">
+        <div class="row">
+            <div style="text-align:center" class="col-md-12">
+                <h1>Ingrese</h1>
+                <form id="form-nuevousuario" method="POST">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    
+                    <input style="text-align:center" type="submit" value="Ingresar" >
+                    <br>
+                    <a style="text-align:center" href="{% url 'password_reset'%}">¿A perdido su contraseña?</a>
+                    <br>
+                    
+                    
+                </form>
+                
+            </div>
+
+        </div>
+        
+    </div>
+<script src="{% static 'js/validacion.js' %}"></script>
+{% endblock %}
+    
+    
